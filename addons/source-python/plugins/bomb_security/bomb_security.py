@@ -11,9 +11,6 @@ from entities.helpers import edict_from_pointer
 from entities.hooks import EntityCondition
 from entities.hooks import EntityPostHook
 from entities.hooks import EntityPreHook
-#   Events
-from events.hooks import EventAction
-from events.hooks import PreEvent
 #   Memory
 from memory import make_object
 #   Players
@@ -24,16 +21,6 @@ from players.entity import Player
 # >> GLOBAL VARIABLES
 # =============================================================================
 _bump_player = None
-
-
-# =============================================================================
-# >> PRE GAME EVENTS
-# =============================================================================
-@PreEvent('player_team')
-def _pre_player_team(game_event):
-    """Block player joining team message if switch_team is being called."""
-    if _bump_player is not None:
-        return EventAction.STOP_BROADCAST
 
 
 # =============================================================================
@@ -48,7 +35,7 @@ def _pre_bump_weapon(args):
         return
     _bump_player = make_object(Player, args[0])
     if _bump_player.team == 3:
-        _bump_player.switch_team(2)
+        _bump_player.set_property_int('m_iTeamNum', 2)
     else:
         _bump_player = None
 
@@ -60,5 +47,5 @@ def _post_bump_weapon(args, return_value):
     global _bump_player
     if _bump_player is None:
         return
-    _bump_player.switch_team(3)
+    _bump_player.set_property_int('m_iTeamNum', 3)
     _bump_player = None

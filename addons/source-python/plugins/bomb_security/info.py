@@ -18,7 +18,7 @@ from plugins.info import PluginInfo
 info = PluginInfo()
 info.name = 'Bomb Security'
 info.author = 'Satoon101'
-info.version = '1.0'
+info.version = '1.1'
 info.basename = 'bomb_security'
 info.variable = info.basename + '_version'
 info.url = 'http://forums.sourcepython.com/showthread.php?1104'
