@@ -7,7 +7,6 @@
 # =============================================================================
 # Source.Python
 from entities.entity import Entity
-from entities.helpers import edict_from_pointer
 from entities.hooks import EntityCondition, EntityPostHook, EntityPreHook
 from memory import make_object
 
