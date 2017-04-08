@@ -11,5 +11,5 @@ To install, simply download the current release from its [release thread](http:/
 
 Once you have installed CutWire on your server, simply add the following to your autoexec.cfg file:
 ```
-sp load bomb_security
+sp plugin load bomb_security
 ```
