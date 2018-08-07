@@ -23,7 +23,7 @@ class _BumpManager(object):
             return
         self.bump_player = make_object(Entity, stack_data[0])
         if self.bump_player.team == 3:
-            self.bump_player.team = 2
+            self.bump_player.team_index = 2
         else:
             self.bump_player = None
 
@@ -31,7 +31,7 @@ class _BumpManager(object):
         """Switch the player back to CT if they just picked up the bomb."""
         if self.bump_player is None:
             return
-        self.bump_player.team = 3
+        self.bump_player.team_index = 3
         self.bump_player = None
 
 _bump_manager = _BumpManager()
