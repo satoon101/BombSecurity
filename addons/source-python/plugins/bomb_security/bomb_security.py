@@ -14,7 +14,7 @@ from memory import make_object
 # =============================================================================
 # >> CLASSES
 # =============================================================================
-class _BumpManager(object):
+class _BumpManager:
     bump_player = None
 
     def pre_bump_weapon(self, stack_data):
@@ -33,6 +33,7 @@ class _BumpManager(object):
             return
         self.bump_player.team_index = 3
         self.bump_player = None
+
 
 _bump_manager = _BumpManager()
 

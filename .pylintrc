@@ -59,4 +59,4 @@ ignore-docstrings=yes
 
 
 [VARIABLES]
-dummy-variables-rgx=game_event|args|return_value|stack_data
+ignored-argument-names=stack_data|return_value
