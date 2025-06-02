@@ -23,7 +23,7 @@ class _BumpManager:
         if make_object(Entity, stack_data[1]).classname != "weapon_c4":
             return
         self.bump_player = make_object(Entity, stack_data[0])
-        if self.bump_player.team == teams_by_name["ct"]:
+        if self.bump_player.team_index == teams_by_name["ct"]:
             self.bump_player.team_index = teams_by_name["t"]
         else:
             self.bump_player = None
