@@ -8,6 +8,8 @@
 # Source.Python
 from entities.entity import Entity
 from entities.hooks import EntityCondition, EntityPostHook, EntityPreHook
+from events import Event
+from filters.players import PlayerIter
 from memory import make_object
 from players.teams import teams_by_name
 
@@ -42,13 +44,11 @@ _bump_manager = _BumpManager()
 # =============================================================================
 # >> ENTITY HOOKS
 # =============================================================================
-@EntityPreHook(EntityCondition.is_human_player, "bump_weapon")
-@EntityPreHook(EntityCondition.is_bot_player, "bump_weapon")
+@EntityPreHook(EntityCondition.is_player, "bump_weapon")
 def _pre_bump_weapon(stack_data):
     _bump_manager.pre_bump_weapon(stack_data)
 
 
-@EntityPostHook(EntityCondition.is_human_player, "bump_weapon")
-@EntityPostHook(EntityCondition.is_bot_player, "bump_weapon")
+@EntityPostHook(EntityCondition.is_player, "bump_weapon")
 def _post_bump_weapon(stack_data, return_value):
     _bump_manager.post_bump_weapon()
